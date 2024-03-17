@@ -1,0 +1,21 @@
+<%- include('partials/header.ejs') %>
+
+<main class="main-content">
+    <div class="card card-article ms-6">
+        <div class="card-body">
+            <% if (locals.title && locals.description && locals.url && locals.id ) { %>
+                <h3 class="card-title"><%= title %></h3>
+                <p class="card-text"><%= description %></p>
+            <% } %>
+            <div class="card-article-btn d-inline-flex">
+                <a class="btn btn-warning edit" id="<%= id %>" href="edit-blog">Edit</a>
+                <form action="/remove-blog" method="get">
+                    <input class="btn btn-warning" id="<%= id %>" type="submit" name="remove" value="Remove">
+                    <!-- <a class="btn remove" id="rm<%#= id %>" href="/">Remove <%#= id %></a> -->
+                </form>
+            </div>
+        </div>
+      </div>
+</main>
+
+<%- include('partials/footer.ejs') %>

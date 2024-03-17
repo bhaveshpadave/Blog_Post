@@ -1,0 +1,28 @@
+<%- include('partials/header.ejs') %>
+
+<main class="main-content">
+    <div class="card-article">
+        <form action="/create-new-blog" method="post">
+            <div class="mb-3">
+                <!-- <label for="blog-url" class="form-label">Blog URL</label>
+                <input type="text" class="form-control" name="blogUrl" placeholder="Ex. /blog1"> -->
+                <label for="blog-title" class="form-label">Blog title</label>
+                <input type="text" class="form-control" name="blogTitle" placeholder="Ex. About myself">
+            </div>
+            <div class="mb-3">
+                <label for="blog-description" class="form-label">Description</label>
+                <textarea class="form-control" name="blogDescription" placeholder="Type here..." rows="3"></textarea>
+            </div>
+            <input class="btn btn-warning" type="submit" value="Save">
+        </form>
+        <%=  %>
+    </div>
+    
+    <% if (locals.title && locals.description) { %>
+        <script>
+            alert("Form has been saved");
+        </script>
+    <% } %>
+</main>
+
+<%- include('partials/footer.ejs') %>

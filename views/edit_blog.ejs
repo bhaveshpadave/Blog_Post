@@ -1,0 +1,26 @@
+<%- include('partials/header.ejs') %>
+
+<main class="main-content">
+    <div class="card-article">
+        <form action="/" method="post">
+            <div class="mb-3">
+                <!-- <label for="blog-url" class="form-label">Blog URL</label>
+                <input type="text" class="form-control" name="blogUrl" placeholder="Ex. /blog1"> -->
+                <label for="blog-title" class="form-label">Blog title</label>
+                <input type="text" class="form-control" name="newBlogTitle" id="" value="<%= blogTitle %>">
+            </div>
+            <div class="mb-3">
+                <label for="blog-description" class="form-label">Description</label>
+                <textarea class="form-control" name="newBlogDescription" id="" rows="3"><%= blogDescription %></textarea>
+            </div>
+            <input class="btn btn-warning" type="submit" value="Update">
+        </form>
+        <% if (locals.title && locals.description) { %>
+            <script>
+                alert("Form has been updated");
+            </script>
+        <% } %>
+    </div>
+</main>
+
+<%- include('partials/footer.ejs') %>

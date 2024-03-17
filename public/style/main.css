@@ -1,0 +1,29 @@
+.main-content{
+    margin: 5%;
+    /* display: flex;
+    flex-wrap: wrap;
+    gap: 2rem; */
+}
+
+/* div.card-all {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+} */
+
+.card {
+    
+}
+
+a.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+span.card-link {
+    color: #ffc107;
+}
+
+.card-article{
+    width: 50rem;
+}

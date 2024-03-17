@@ -1,0 +1,25 @@
+<%- include('partials/header.ejs') %>
+
+<main class="main-content">
+    <% if (locals.blog) { %>
+        <% blog.forEach(element => { %>
+            <div class="card-all d-inline-flex">
+              <div class="card m-3" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title"><%= element.title %></h5>
+                  <p class="card-text">
+                    <% if (element.description.length > 90) {%> 
+                      <%= element.description.substring(0,90) %>...
+                    <% } else { %>
+                      <%= element.description %>
+                    <% } %>
+                  </p>
+                  <a href="<%= element.url %>" class="card-link">Read <span class="card-link">more ></span></a>
+                </div>
+              </div>
+            </div>
+        <% }) %>
+    <% } %>
+</main>
+
+<%- include('partials/footer.ejs') %>

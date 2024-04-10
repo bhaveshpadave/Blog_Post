@@ -2,25 +2,27 @@
 
 <main class="main-content">
     <div class="card-article">
-        <form action="/blog/edit/<%= blogId %>" method="post">
+        <form action="/blog/edit/<%= blog.id %>" method="post">
             <div class="mb-3">
                 <!-- <label for="blog-url" class="form-label">Blog URL</label>
                 <input type="text" class="form-control" name="blogUrl" placeholder="Ex. /blog1"> -->
                 <label for="blog-title" class="form-label">Blog title</label>
-                <input type="text" class="form-control" name="newBlogTitle" id="" value="<%= blogTitle %>">
+                <input type="text" class="form-control" id="newBlogTitle" name="newBlogTitle" value="<%= blog.title %>">
             </div>
             <div class="mb-3">
                 <label for="blog-description" class="form-label">Description</label>
-                <textarea class="form-control" name="newBlogDescription" id="" rows="3"><%= blogDescription %></textarea>
+                <textarea class="form-control" id="newBlogDescription" name="newBlogDescription" rows="3"><%= blog.description %></textarea>
             </div>
-            <input class="btn btn-warning" type="submit" value="Update">
+            <input class="btn btn-warning" type="submit" value="Update" onclick="eventHandler()">
         </form>
-        <% if (locals.title && locals.description) { %>
-            <script>
-                alert("Form has been updated");
-            </script>
-        <% } %>
     </div>
+    <script>
+        function eventHandler() {
+            if(document.getElementById('newBlogTitle').value && document.getElementById('newBlogDescription').value){
+                alert("Changes have been saved");
+            }
+        }
+    </script> 
 </main>
 
 <%- include('partials/footer.ejs') %>

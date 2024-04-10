@@ -3,12 +3,14 @@
 <main class="main-content">
     <div class="card card-article ms-6">
         <div class="card-body">
-            <h3 class="card-title"><%= blog.title %></h3>
-            <p class="card-text"><%= blog.description %></p>
-            <div class="card-article-btn d-inline-flex">
-                <a class="btn btn-warning edit" name="edit" href="/blog/edit/<%= blog.id %>">Edit</a>
-                <a class="btn remove" id="rm" href="/remove/<%= blog.id %>">Remove</a>
-            </div>
+            <% if (locals.blog) { %>
+                <h3 class="card-title"><%= blog.title %></h3>
+                <p class="card-text"><%= blog.description %></p>
+                <div class="card-article-btn d-inline-flex">
+                    <a class="btn btn-warning edit" name="edit" href="/blog/edit/<%= blog.id %>">Edit</a>
+                    <a class="btn remove" id="rm" href="/remove/<%= blog.id %>">Remove</a>
+                </div>
+            <% } %>
         </div>
       </div>
 </main>

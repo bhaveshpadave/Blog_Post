@@ -4,23 +4,22 @@
     <div class="card-article">
         <form action="/create-new-blog" method="post">
             <div class="mb-3">
-                <!-- <label for="blog-url" class="form-label">Blog URL</label>
-                <input type="text" class="form-control" name="blogUrl" placeholder="Ex. /blog1"> -->
                 <label for="blog-title" class="form-label">Blog title</label>
-                <input type="text" class="form-control" name="blogTitle" placeholder="Ex. About myself">
+                <input type="text" class="form-control" id="blogTitle" name="blogTitle" placeholder="Ex. About myself" required>
             </div>
             <div class="mb-3">
                 <label for="blog-description" class="form-label">Description</label>
-                <textarea class="form-control" name="blogDescription" placeholder="Type here..." rows="3"></textarea>
+                <textarea class="form-control" id="blogDescription" name="blogDescription" placeholder="Type here..." rows="3" required></textarea>
             </div>
-            <input class="btn btn-warning" type="submit" value="Save">
+            <input class="btn btn-warning" id="submitBtn" type="submit" value="Save" onclick="eventHandler()">
         </form>
     </div>
-    <% if (locals.title && locals.description) { %>
-        <script>
-            alert("Form has been saved");
-        </script>
-    <% } %>
+    <script>
+        function eventHandler() {
+            if(document.getElementById('blogTitle').value && document.getElementById('blogDescription').value)
+            alert("New post has been created");
+        }
+    </script>    
 </main>
 
 <%- include('partials/footer.ejs') %>

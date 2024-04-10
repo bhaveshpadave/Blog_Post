@@ -77,7 +77,9 @@ app.post("/create-new-blog", (req, res) => {
         id: `${arrayName}`
     }
 
-    allBlogs.push(blogArray);
+    if(req.body.blogTitle && req.body.blogDescription){
+        allBlogs.push(blogArray);
+    }
 
     res.redirect("/");
 });
@@ -85,12 +87,9 @@ app.post("/create-new-blog", (req, res) => {
 // Edit/ update existing blog post
 app.get("/blog/edit/:id", (req, res) => {
     const i =  allBlogs.findIndex((e)=> e.id === req.params.id);
-    const array = allBlogs[i];
+    let array = allBlogs[i];
         res.render("edit_blog.ejs", {
-            blogId: req.params.id,
-            blogUrl: array.url,
-            blogTitle: array.title,
-            blogDescription: array.description
+            blog: array
     });
 });
 app.post("/blog/edit/:id", (req, res) => {
